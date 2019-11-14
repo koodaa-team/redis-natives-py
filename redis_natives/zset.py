@@ -135,7 +135,7 @@ class ZSet(RedisSortable, Comparable, SetOperatorMixin):
         Add element ``el`` with ``score`` to this ``ZSet``
         """
         try:
-            return self._client.zadd(self.key, str(el), long(score))
+            return self._client.zadd(self.key, str(el), int(score))
         except ValueError:
             return False
 
